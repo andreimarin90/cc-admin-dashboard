@@ -100,4 +100,20 @@
 .newsletters-list .list-item {
   margin-bottom: 20px;
 }
+.newsletters-list .list-newsletter {
+  background: #eee;
+  padding: 0;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+.newsletters-list .newsletter-stats {
+  padding: 0 15px 10px;
+}
+.newsletters-list .newsletter-stats table {
+  width: 100%;
+}
+.newsletters-list .newsletter-toggle-stats {
+  display: block;
+  padding: 7px 8px;
+}
 /*# sourceMappingURL=member.css.map */

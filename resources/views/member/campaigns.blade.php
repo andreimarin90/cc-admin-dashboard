@@ -21,7 +21,7 @@
                 @foreach($campaigns as $campaign)
                     <tr>
                         <td>{{ $loop->index + 1 }}</td>
-                        <td><a href="#" class="js-show-campaign" data-campaign-id="{{ $campaign->id }}" data-campaign-name="{{ $campaign->name }}">{{ $campaign->name }}</a></td>
+                        <td><a href="#" data-toggle="modal" data-target="#newslettersModal{{ $loop->index + 1 }}">{{ $campaign->name }}</a></td>
                         <td>{{ $campaign->created_at }}</td>
                         <td>{{ $campaign->updated_at }}</td>
                     </tr>
@@ -29,12 +29,13 @@
                 </tbody>
             </table>
 
-            <div class="modal fade" id="newslettersModal" tabindex="-1">
+            @foreach($campaigns as $campaign)
+            <div class="modal fade newsletter-modal" id="newslettersModal{{ $loop->index + 1 }}" data-campaign-id="{{ $campaign->id }}" tabindex="-1">
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
-                            <h4 class="modal-title">Modal title</h4>
+                            <h4 class="modal-title">{{ $campaign->name }}</h4>
                         </div>
 
                         <div class="modal-body">
@@ -47,6 +48,7 @@
                     </div>
                 </div>
             </div>
+            @endforeach
 
             <script>
 				window.newsletters = {!! $newsletters !!};
